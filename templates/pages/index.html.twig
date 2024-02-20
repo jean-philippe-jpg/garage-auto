@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PagesController!{% endblock %}
+
+{% block body %}
+<style>
+    
+    .annonces{
+        display: flex;
+        justify-content: space-evenly;
+       
+        margin-top: 10vh;
+    }
+
+
+</style>
+<div class="annonces">
+    {% include "partials/_annonces.html.twig" %}
+</div>
+
+
+{% endblock %}

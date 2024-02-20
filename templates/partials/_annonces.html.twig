@@ -1,22 +1,26 @@
 
 
 
-    {% for vehicules in voitures %}
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+{% for vehicules in voitures %}
+<div class="card card-annonce" style="width: 18rem;">
+  <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-recettes " alt="recettes">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
-      
-
+     
+      {{vehicules.prix}}
+      <br>
+      {{vehicules.marque}}
+      <br>
+          {{vehicules.modele}}
+          <br>
           {{vehicules.annee}}
             <br>
            {{vehicules.kilometrage}}
-
-    
-              
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+           <br>
+           <p id="description" style="display: none;">{{vehicules.description}}</p>
+      <a id="btn-description" href="#" class="btn btn-primary">description</a>
     </div>
   </div>
   {% endfor %}
+ 
 

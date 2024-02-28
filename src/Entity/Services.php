@@ -2,10 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\ServicesRepository;
 use Doctrine\ORM\Mapping as ORM;
+//use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Metadata\ApiResource;
+use App\Repository\ServicesRepository;
 
 #[ORM\Entity(repositoryClass: ServicesRepository::class)]
+#[ApiResource]
+
 class Services
 {
     #[ORM\Id]

@@ -5,18 +5,17 @@
 <div class="card card-annonce" style="width: 18rem;">
   <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-recettes " alt="recettes">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-     
-      {{vehicules.prix}}
-      <br>
-      {{vehicules.marque}}
-      <br>
-          {{vehicules.modele}}
-          <br>
-          {{vehicules.annee}}
-            <br>
-           {{vehicules.kilometrage}}
+      <h5 class="card-title"><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5>
+            {{vehicules.marque}}
            <br>
+           {{vehicules.modele}}
+           <br>
+          {{vehicules.annee}}
+          <br>
+          {{vehicules.kilometrage}}
+            <br>
+            {{vehicules.prix}}
+            <br>
            <p id="description" style="display: none;">{{vehicules.description}}</p>
       <a id="btn-description" href="#" class="btn btn-primary">description</a>
     </div>

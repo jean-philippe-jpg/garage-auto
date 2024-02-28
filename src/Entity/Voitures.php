@@ -25,7 +25,7 @@ class Voitures
     #[ORM\Column]
     private ?int $kilometrage = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 500)]
     private ?string $description = null;
 
     #[ORM\Column(length: 100)]

@@ -3,6 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\DetailsServices;
+use App\Entity\Marques;
+use App\Entity\Modeles;
+use App\Entity\Motorisation;
 use App\Entity\Services;
 use App\Entity\User;
 use App\Entity\Voitures;
@@ -49,5 +52,8 @@ class DashboardController extends AbstractDashboardController
          yield MenuItem::linkToCrud('services', 'fas fa-list', Services::class);
          yield MenuItem::linkToCrud('user', 'fas fa-list', User::class);
          yield MenuItem::linkToCrud('voitures', 'fas fa-list', Voitures::class);
+         yield MenuItem::linkToCrud('marques', 'fas fa-list', Marques::class);
+         yield MenuItem::linkToCrud('modeles', 'fas fa-list', Modeles::class);
+         yield MenuItem::linkToCrud('motorisation', 'fas fa-list', Motorisation::class);
     }
 }

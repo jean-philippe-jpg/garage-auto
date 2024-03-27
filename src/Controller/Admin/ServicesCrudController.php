@@ -20,12 +20,14 @@ class ServicesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield from parent::configureFields($pageName);
-       # return [
-           # IdField::new('id'),
-           # TextField::new('title'),
+        #return [
+            #IdField::new('id_services'),
+            #TextField::new('id_details_services'),
            # TextEditorField::new('description'),
         #];
+        //TextField::new('id_motorisation');
         yield AssociationField::new('detailsServices');
+        yield AssociationField::new('id_motorisation');
     }
     
 }

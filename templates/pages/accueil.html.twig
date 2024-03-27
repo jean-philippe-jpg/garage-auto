@@ -4,7 +4,25 @@
 
 {% block body %}
 
+{% for motorisations in motorisation %}
+
+<a href="{{path('app_service', {'id': motorisations.id})}}">{{motorisations}}</a>
+    
+{% endfor %}
+
+
+{% for service in services %}
+
+<a href="{{path('app_prestation',{'id': service.id})}}">{{service}}</a>
+
+{% endfor %}
+
+   
+
+
 <h1 style="margin-top: 35vh; margin-left: 40vw;">GARAGE PERROT</h1>
-{% include "partials/_services.html.twig" %}
- 
+
+
+    
+
 {% endblock %}

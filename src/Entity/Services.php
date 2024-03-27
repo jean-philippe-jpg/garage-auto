@@ -23,6 +23,10 @@ class Services
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?DetailsServices $detailsServices = null;
 
+    #[ORM\ManyToOne(inversedBy: 'id_service')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Motorisation $id_motorisation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -43,6 +47,7 @@ class Services
     public function getDetailsServices(): ?detailsServices
     {
         return $this->detailsServices;
+        return $this->id_motorisation;
     }
 
     public function setDetailsServices(?detailsServices $detailsServices): static
@@ -56,5 +61,17 @@ class Services
     public function __toString()
     {
          return $this->getName();
+    }
+
+    public function getIdMotorisation(): ?Motorisation
+    {
+        return $this->id_motorisation;
+    }
+
+    public function setIdMotorisation(?Motorisation $id_motorisation): static
+    {
+        $this->id_motorisation = $id_motorisation;
+
+        return $this;
     }
 }

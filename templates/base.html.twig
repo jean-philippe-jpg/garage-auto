@@ -25,7 +25,7 @@
         {% block body %}
         
         {% endblock %}
-
+       
         <div style="margin-top: 100%;">
             {% include "partials/_footer.html.twig" %}
         </div>
@@ -36,47 +36,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-
+<script src="../assets/styles/script.js"></script>
 
 {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
 
-
-            <script>
-                function ShowUsers(){
-
-const xhr = new XMLHttpRequest();
-
-xhr.open('GET', 'http://127.0.0.1:8000/api/servicess');
-
-xhr.addEventListener('readystatechange', function(){
-
-  if(xhr.readyState === 4){
-         if(xhr.status === 200){
-            //document.getElementById("affichageDesDonnées").innerHTML =
-             //this.responseText;
-        console.log("response = " + xhr.response);
-        const object = JSON.parse(xhr.response)
-         debugger;
-        document.getElementById("affichageDesDonnées").innerText = xhr.response;
-        //document.getElementById('affichageDesDonnées').innerText = xhr.response
-  }
-
-  } else if(xhr.status === 404){
-    console.log('impossible de trouver la requette');
-
-  } else {
-
-    alert('une erreur c\'est produite');
-  }
-
-});
-
-xhr.send();
-}
-            </script>
-           
+            {{ encore_entry_script_tags('app') }}    
+            
     {% endblock %}
 </html>
-
-

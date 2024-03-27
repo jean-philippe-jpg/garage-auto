@@ -45,4 +45,17 @@ class MotorisationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+   public function findMotorisationByModele($modeleid = null)
+    {
+         $queryBuilder = $this->createQueryBuilder('m')
+                ->leftJoin('m.id_modele', 'modeles');
+    
+                if($modeleid !== null) {
+                     $queryBuilder->andWhere('modeles.id = :modeleid')
+                     ->setParameter('modeleid', $modeleid);
+                }
+    return $queryBuilder->getQuery()->getResult();
+
+}
 }

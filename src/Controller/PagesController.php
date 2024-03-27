@@ -16,36 +16,49 @@ use App\Repository\DetailsServicesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class PagesController extends AbstractController
 {
 
 
 
-    #[Route('/', name: 'app_accueil')]
-    public function accueil( MotorisationRepository $motorisation): Response
-    {
+    #[Route('/', name: 'app_accueil', methods: ['GET'])]
+    public function accueil(ModelesRepository $modeles, MarquesRepository $marques, ServicesRepository $service, MotorisationRepository $motorisation, Request $request): Response
+
+    {  
+
+
+        
+         //$marques = $request->get('marquesid');
+        //$modeles = $modeles->findModelesByMarque($marques);
+
+         ////$modelesid = $request->get('modelesid');
+        //$motorisation = $motorisation->findMotorisationByModele($modelesid);
+
+        // $motorisation = $request->get('motorisationid');
+       // $services = $service->findServicesByMotorisation($motorisation);
+       $services = $service->findAll();
+        $marques = $marques->findAll();
+        $modeles = $modeles->findAll();
         $motorisation = $motorisation->findAll();
-       
+    
         return $this->render('pages/accueil.html.twig', [
             'motorisation' => $motorisation,
-        ]);
-    }
-
-    #[Route('/service/{id}', name: 'app_service')]
-    public function service(Services $idservice, ServicesRepository $services): Response
-    {
-        //$services = $idservice->findAll();
-       
-        return $this->render('pages/accueil.html.twig', [
-            'services' => $idservice,
+            'services' => $services,
+            'marques' => $marques,
+            'modeles' => $modeles,
+            
         ]);
     }
 
    
 
 
-    #[Route('/annonces', name: 'app_annonces')]
+   
+
+
+    #[Route('/annonces', name: 'app_annonces', methods: ['GET'])]
     public function index(VoituresRepository $voiture, ServicesRepository $services ): Response
     {
            
@@ -59,7 +72,7 @@ class PagesController extends AbstractController
     }
 
 
-    #[Route('/prestation/{id}', name: 'app_prestation')]
+    #[Route('/prestation/{id}', name: 'app_prestation', methods: ['GET'])]
     public function prestation(DetailsServices $detail, ServicesRepository $services ): Response
     {
            

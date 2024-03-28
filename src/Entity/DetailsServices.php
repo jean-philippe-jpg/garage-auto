@@ -24,6 +24,10 @@ class DetailsServices
     #[ORM\Column]
     private ?int $tarifs = null;
 
+    #[ORM\ManyToOne(inversedBy: 'id_detail')]
+    private ?services $id_service = null;
+
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -67,6 +71,24 @@ class DetailsServices
 
     public function __toString()
     {
-        return $this->getTitre().''.$this->getDescription();
+        return $this->titre;
+        return $this->description;
+        return $this->tarifs;
+        return $this->id_service;
+        
     }
+
+    public function getIdService(): ?services
+    {
+        return $this->id_service;
+    }
+
+    public function setIdService(?services $id_service): static
+    {
+        $this->id_service = $id_service;
+
+        return $this;
+    }
+
+    
 }

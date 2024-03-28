@@ -42,9 +42,12 @@ class Marques
 
         return $this;
     }
+
+
     public function __toString()
     {
-         return $this->getMarque();
+         return $this->marque;
+         return $this->id_modele;
     }
 
     /**

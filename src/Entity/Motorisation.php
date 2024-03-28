@@ -31,8 +31,10 @@ class Motorisation
     }
     public function __toString()
     {
-         //return $this->getMotorisation();
-         return $this->getIdModele();
+         return $this->motorisation;
+         return $this->id_modele;
+         return $this->id_service;
+         
          
     }
 

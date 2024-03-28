@@ -25,8 +25,10 @@ class ModelesCrudController extends AbstractCrudController
         //yield from parent::configureFields($pageName);
         yield TextField::new( 'modele');
         yield IntegerField::new( 'annee');
+        //yield IntegerField::new( 'id_motorisation');
+    
         yield AssociationField::new('id_marque');
-        //yield AssociationField::new('id_motorisation');
+        yield AssociationField::new('id_motorisation');
     }
     
 }

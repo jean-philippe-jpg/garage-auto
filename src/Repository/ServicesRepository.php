@@ -49,10 +49,10 @@ class ServicesRepository extends ServiceEntityRepository
 public function findServicesByMotorisation($motorisationid = null)
 {
     $queryBuilder = $this->createQueryBuilder('s')
-              ->leftJoin('s.id_motorisation', 'motorisation');
+              ->leftJoin('s.id_motorisation', 'm');
 
               if($motorisationid !== null) {
-                  $queryBuilder->Where('motorisation.id = :motorisationid')
+                  $queryBuilder->Where('m.id = :motorisationid')
                   ->setParameter('motorisationid', $motorisationid);
               }
                   return $queryBuilder->getQuery()->getResult();

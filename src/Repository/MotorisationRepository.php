@@ -49,10 +49,10 @@ class MotorisationRepository extends ServiceEntityRepository
    public function findMotorisationByModele($modeleid = null)
     {
          $queryBuilder = $this->createQueryBuilder('m')
-                ->leftJoin('m.id_modele', 'modeles');
+                ->leftJoin('m.id_modele', 'a');
     
                 if($modeleid !== null) {
-                     $queryBuilder->andWhere('modeles.id = :modeleid')
+                     $queryBuilder->andWhere('a.id = :modeleid')
                      ->setParameter('modeleid', $modeleid);
                 }
     return $queryBuilder->getQuery()->getResult();

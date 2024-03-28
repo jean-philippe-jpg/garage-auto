@@ -27,34 +27,33 @@ class PagesController extends AbstractController
     public function accueil(ModelesRepository $modeles, MarquesRepository $marques, ServicesRepository $service, MotorisationRepository $motorisation, Request $request): Response
 
     {  
+   
+         $marquesid = $request->get('marquesid');
+         $modelesid = $request->get('modelesid');
+         $motorisationid = $request->get('motorisationid');
+         $marques = $marques->findAll();
 
 
-        
-         //$marques = $request->get('marquesid');
-        //$modeles = $modeles->findModelesByMarque($marques);
 
-         ////$modelesid = $request->get('modelesid');
-        //$motorisation = $motorisation->findMotorisationByModele($modelesid);
-
-        // $motorisation = $request->get('motorisationid');
-       // $services = $service->findServicesByMotorisation($motorisation);
-       $services = $service->findAll();
-        $marques = $marques->findAll();
-        $modeles = $modeles->findAll();
-        $motorisation = $motorisation->findAll();
+        $modeles = $modeles->findModelesByMarque($marquesid);
+        $motorisation = $motorisation->findMotorisationByModele($modelesid);
+        $services = $service->findServicesByMotorisation($motorisationid);
+       //$services = $service->findAll();
+        //$marques = $marques->findAll();
+       // $modeles = $modeles->findAll();
+       // $motorisation = $motorisation->findAll();
     
         return $this->render('pages/accueil.html.twig', [
             'motorisation' => $motorisation,
             'services' => $services,
             'marques' => $marques,
             'modeles' => $modeles,
+            'marque' => $marques,
             
         ]);
     }
 
    
-
-
    
 
 

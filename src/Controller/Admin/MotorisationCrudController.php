@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class MotorisationCrudController extends AbstractCrudController
 {
@@ -21,8 +22,9 @@ class MotorisationCrudController extends AbstractCrudController
     {
        // yield from parent::configureFields($pageName);
         yield TextField::new('motorisation');
-       
+        yield IntegerField::new('id_modele');
+
        yield AssociationField::new('id_service');
-       yield AssociationField::new('id_modele');
+        yield AssociationField::new('id_modele');
      }
     }

@@ -33,7 +33,11 @@ class Modeles
     }
     public function __toString()
     {
-         return $this->getModele(); 
+         //return $this->id_marque; 
+            return $this->modele;
+            return $this->annee;
+            return $this->id_motorisation;
+         
     }
    
     public function getId(): ?int

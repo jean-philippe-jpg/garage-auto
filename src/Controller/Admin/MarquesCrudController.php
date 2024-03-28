@@ -8,7 +8,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use PHPUnit\Framework\Test;
+use Symfony\Bundle\MakerBundle\Doctrine\RelationOneToOne;
 
 class MarquesCrudController extends AbstractCrudController
 {
@@ -18,16 +21,14 @@ class MarquesCrudController extends AbstractCrudController
     }
 
     
-    //public function configureFields(string $pageName): iterable
-    //{
+    public function configureFields(string $pageName): iterable
+    {
         //yield from parent::configureFields($pageName);
-        //return [
-            //IdField::new('id'),
-            //TextField::new('title'),
-            //TextEditorField::new('description'),
-        //];
-        //yield NumberField::new('annee');
-       //yield AssociationField::new('id_modele');
-   // }
+        yield TextField::new( 'marque');
+       // yield IntegerField::new( 'id_modele');
+
+        yield AssociationField::new('id_modele');
+        
+    }
     
 }

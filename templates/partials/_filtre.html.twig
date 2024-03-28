@@ -20,21 +20,21 @@
 <div class="card card-filtre" ">
     {% for marque in marques %}
 
-    <a class="lien-filtre" href="{{path('app_accueil', {'marquesid': marque.id})}}">{{marque}}</a>
+    <a class="lien-filtre" href="{{path('app_accueil', {'marqueid': marque.id})}}">{{marque}}</a>
     
-    {% endfor %}
-    
+    {% endfor %} 
 </div>
 
 
 <div  class="card card-filtre">
     {% for modele in modeles %}
 
-    <a class="lien-filtre" href="{{path('app_accueil', {'modelesid': modele.id})}}">{{modele}}</a>
+    <a class="lien-filtre" href="{{path('app_accueil', {'modeleid': modele.id})}}">{{modele}}</a>
     
     {% endfor %}
     
 </div>
+
 
 
 <div  class="card card-filtre">

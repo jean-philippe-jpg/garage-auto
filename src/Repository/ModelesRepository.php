@@ -50,10 +50,10 @@ class ModelesRepository extends ServiceEntityRepository
 public function findModelesByMarque($marqueid = null) 
 {
     $queryBuilder = $this->createQueryBuilder('m')
-              ->leftJoin('m.id_marque', 'a');
+              ->leftJoin('m.id_marque', 'b');
 
               if($marqueid !== null) {
-                  $queryBuilder->Where('a.id = :marqueid')
+                  $queryBuilder->Where('b.id = :marqueid')
                   ->setParameter('marqueid', $marqueid);
               }
 return $queryBuilder->getQuery()->getResult();

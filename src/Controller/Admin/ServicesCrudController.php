@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 
 class ServicesCrudController extends AbstractCrudController
 {
@@ -19,10 +20,10 @@ class ServicesCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
-        yield from parent::configureFields($pageName);
+       yield from parent::configureFields($pageName);
         #return [
-            #IdField::new('id_services'),
-            #TextField::new('id_details_services'),
+            yield TextField::new('name');
+            yield TextField::new('detailsServices');
            # TextEditorField::new('description'),
         #];
         //TextField::new('id_motorisation');

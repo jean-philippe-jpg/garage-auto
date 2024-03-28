@@ -24,8 +24,8 @@ class DetailsServices
     #[ORM\Column]
     private ?int $tarifs = null;
 
-    #[ORM\ManyToOne(inversedBy: 'id_detail')]
-    private ?services $id_service = null;
+    #[ORM\ManyToOne(inversedBy: 'id_details')]
+    private ?Services $id_service = null;
 
    
     public function getId(): ?int
@@ -78,17 +78,19 @@ class DetailsServices
         
     }
 
-    public function getIdService(): ?services
+    public function getIdService(): ?Services
     {
         return $this->id_service;
     }
 
-    public function setIdService(?services $id_service): static
+    public function setIdService(?Services $id_service): static
     {
         $this->id_service = $id_service;
 
         return $this;
     }
+
+   
 
     
 }

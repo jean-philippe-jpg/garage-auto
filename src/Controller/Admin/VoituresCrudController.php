@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class VoituresCrudController extends AbstractCrudController
 {
@@ -33,6 +34,8 @@ class VoituresCrudController extends AbstractCrudController
             yield TextField::new('description', 'description');
             yield NumberField::new('prix', 'prix');
             yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
+          yield AssociationField::new('id_marque');
+           yield AssociationField::new('id_modele');
     }
     
 }

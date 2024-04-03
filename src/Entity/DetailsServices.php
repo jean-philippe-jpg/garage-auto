@@ -24,7 +24,7 @@ class DetailsServices
     #[ORM\Column]
     private ?int $tarifs = null;
 
-    #[ORM\ManyToOne(inversedBy: 'id_details')]
+    #[ORM\ManyToOne(inversedBy: 'id_detail')]
     private ?Services $id_service = null;
 
    

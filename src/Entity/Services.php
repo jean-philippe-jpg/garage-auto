@@ -27,18 +27,18 @@ class Services
     #[ORM\JoinColumn(nullable: false)]
     private ?Motorisation $id_motorisation = null;
 
-    #[ORM\OneToMany(targetEntity: DetailsServices::class, mappedBy: 'id_service')]
+#[ORM\OneToMany(targetEntity: DetailsServices::class, mappedBy: 'id_service')]
     private Collection $id_detail;
 
-    #[ORM\OneToMany(targetEntity: detailsServices::class, mappedBy: 'id_service')]
-    private Collection $id_details;
+   // #[ORM\OneToMany(targetEntity: detailsServices::class, mappedBy: 'id_service')]
+   //private Collection $id_detail;
 
     public function __construct()
     {
         $this->id_detail = new ArrayCollection();
-        $this->id_details = new ArrayCollection();
+       //$this->id_details = new ArrayCollection();
     }
-
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +61,7 @@ class Services
     public function __toString()
     {
          return $this->getName();
+         return $this->getIdDetail();
     }
 
     public function getIdMotorisation(): ?Motorisation
@@ -75,27 +76,27 @@ class Services
         return $this;
     }
 
-    /**
+/**
      * @return Collection<int, detailsServices>
      */
-    public function getIdDetails(): Collection
+    public function getIdDetail(): Collection
     {
-        return $this->id_details;
+        return $this->id_detail;
     }
 
     public function addIdDetail(detailsServices $idDetail): static
     {
-        if (!$this->id_details->contains($idDetail)) {
-            $this->id_details->add($idDetail);
+        if (!$this->id_detail->contains($idDetail)) {
+            $this->id_detail->add($idDetail);
             $idDetail->setIdService($this);
         }
 
         return $this;
     }
 
-    public function removeIdDetail(detailsServices $idDetail): static
+  public function removeIdDetail(detailsServices $idDetail): static
     {
-        if ($this->id_details->removeElement($idDetail)) {
+        if ($this->id_detail->removeElement($idDetail)) {
             // set the owning side to null (unless already changed)
             if ($idDetail->getIdService() === $this) {
                 $idDetail->setIdService(null);

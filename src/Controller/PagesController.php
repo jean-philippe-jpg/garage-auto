@@ -13,6 +13,7 @@ use App\Repository\ServicesRepository;
 use App\Repository\VoituresRepository;
 use App\Repository\MotorisationRepository;
 use App\Repository\DetailsServicesRepository;
+use App\Repository\VMarquesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,21 +28,21 @@ class PagesController extends AbstractController
     public function accueil(ModelesRepository $modeles, MarquesRepository $marques, ServicesRepository $service, MotorisationRepository $motorisation, Request $request): Response
 
     {  
-   
-         $marquesid = $request->get('marquesid');
-         $modelesid = $request->get('modelesid');
+        
+         $marquesid = $request->get('marqueid');
+         $modelesid = $request->get('modeleid');
          $motorisationid = $request->get('motorisationid');
          $marques = $marques->findAll();
-
-
 
         $modeles = $modeles->findModelesByMarque($marquesid);
         $motorisation = $motorisation->findMotorisationByModele($modelesid);
         $services = $service->findServicesByMotorisation($motorisationid);
+
        //$services = $service->findAll();
         //$marques = $marques->findAll();
        // $modeles = $modeles->findAll();
        // $motorisation = $motorisation->findAll();
+
     
         return $this->render('pages/accueil.html.twig', [
             'motorisation' => $motorisation,
@@ -58,15 +59,18 @@ class PagesController extends AbstractController
 
 
     #[Route('/annonces', name: 'app_annonces', methods: ['GET'])]
-    public function index(VoituresRepository $voiture, ServicesRepository $services ): Response
+    public function index(VMarquesRepository $Vmarques, VoituresRepository $voiture, ServicesRepository $services, Request $request ): Response
     {
-           
-            $voitures = $voiture->findAll();
-            //$services = $services->findAll();
+        $vmarque = $request->get('marque');
 
+           // $voitures = $voiture->findAll();
+            $Vmarques = $Vmarques->findAll();
+         $voiture = $voiture->findByMarque($vmarque);
+            
         return $this->render('pages/index.html.twig', [
-            'voitures' => $voitures,
-            //'service' => $services,
+            'voitures' => $voiture,
+            'filtreMarques' => $Vmarques,
+            //'annonces' => $voiture,
         ]);
     }
 

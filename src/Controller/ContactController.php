@@ -34,23 +34,12 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($contact);
             $entityManager->flush();
-            $email = $contact->getEmail();
-            $message = $contact->getMessage();
-
-            $email = (new Email())
-
-                   ->from('didierdeschamps@example.com')
-                   ->to($email)
-                   ->subject('Coupe du monde')
-                   ->text($message, 'vous êtes invité à la prochaine coupe du monde');
-            
-               $mailer->send($email);
             
             return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('contact/new.html.twig', [
-            'contact' => $contact,
+            //'contact' => $contact,
             'form' => $form,
         ]);
     }

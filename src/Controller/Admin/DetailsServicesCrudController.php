@@ -26,7 +26,7 @@ class DetailsServicesCrudController extends AbstractCrudController
             //TextEditorField::new('description'),
            
         #];
-        #yield AssociationField::new('services');
+       yield AssociationField::new('id_service');
     }
     
 }

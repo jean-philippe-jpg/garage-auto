@@ -45,4 +45,42 @@ class VoituresRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+   // public function findByMarque($marque): array
+   // {
+       // return $this->createQueryBuilder('v')
+          //  ->andWhere('v.id_marque = :marque')
+           // ->setParameter('marque', $marque)
+           // ->getQuery()
+           // ->getResult()
+       // ;
+   // }
+
+   // public function findByModele($modele): array
+   // {
+        //return $this->createQueryBuilder('v')
+           // ->andWhere('v.id_modele = :modele')
+           // ->setParameter('modele', $modele)
+           // ->getQuery('v')
+           // ->getResult('v')
+       // ;
+   // }
+
+
+    public function findByMarque($marque = null)
+{
+    $queryBuilder = $this->createQueryBuilder('v')
+              ->leftJoin('v.id_marque', 'm');
+
+              if($marque !== null) {
+                  $queryBuilder->Where('m.id = :marque')
+                  ->setParameter('marque', $marque);
+              }
+                  return $queryBuilder->getQuery()->getResult();
+   
+                }
+
 }
+     //public function findByMotorisation($motorisation): array   
+
+

@@ -46,6 +46,23 @@ class Voitures
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'marque')]
+    private ?VMarques $id_marque = null;
+
+    #[ORM\ManyToOne(inversedBy: 'modele')]
+    private ?VModeles $id_modele = null;
+
+
+   public function __construct()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+      public function __toString()
+      {
+        return $this->marque;
+        
+      }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -122,7 +139,6 @@ class Voitures
 
         return $this;
     }
-
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
@@ -166,6 +182,30 @@ class Voitures
     public function getImageSize(): ?int
     {
         return $this->imageSize;
+    }
+
+    public function getIdMarque(): ?VMarques
+    {
+        return $this->id_marque;
+    }
+
+    public function setIdMarque(?VMarques $id_marque): static
+    {
+        $this->id_marque = $id_marque;
+
+        return $this;
+    }
+
+    public function getIdModele(): ?VModeles
+    {
+        return $this->id_modele;
+    }
+
+    public function setIdModele(?VModeles $id_modele): static
+    {
+        $this->id_modele = $id_modele;
+
+        return $this;
     }
 
 }

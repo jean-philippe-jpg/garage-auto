@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ContactType extends AbstractType
 {
@@ -18,6 +19,14 @@ class ContactType extends AbstractType
             ->add('email', EmailType::class)
             ->add('telephone')
             ->add('message')
+            ->add('submit', SubmitType::class, [
+                'label' => 'Envoyer',
+                'attr' => [
+                    'class' => 'btn btn-primary',
+                    'style'=>'border: 3px solid red;',
+                    
+                ],
+            ])
         ;
     }
 

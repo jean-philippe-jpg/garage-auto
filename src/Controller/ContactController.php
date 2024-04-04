@@ -34,8 +34,30 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($contact);
             $entityManager->flush();
-            
-            return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
+
+                //$data = $form->getData();
+
+                $nom = $contact->getNom();
+                $prenom = $contact->getPrenom();
+                $email = $contact->getEmail();
+                $telephone = $contact->getTelephone();
+                $message = $contact->getMessage();
+
+            $email = (new Email())
+            ->from($email)
+            ->to('you@example.com')
+            //->cc('cc@example.com')
+            //->bcc('bcc@example.com')
+            //->replyTo('fabien@example.com')
+            //->priority(Email::PRIORITY_HIGH)
+            ->subject('demande de contact')
+            ->text($message, $prenom, $nom , $telephone);
+           
+
+               $mailer->send($email);
+
+
+            return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('contact/new.html.twig', [

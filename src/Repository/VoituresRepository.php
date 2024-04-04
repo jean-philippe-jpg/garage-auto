@@ -80,6 +80,20 @@ class VoituresRepository extends ServiceEntityRepository
    
                 }
 
+    public function findByModele($modele = null)
+    {
+        $queryBuilder = $this->createQueryBuilder('v')
+                  ->leftJoin('v.id_modele', 'm');
+  
+                  if($modele !== null) {
+                      $queryBuilder->Where('m.id = :modele')
+                      ->setParameter('modele', $modele);
+                  }
+                      return $queryBuilder->getQuery()->getResult();
+     
+                    
+    }
+
 }
      //public function findByMotorisation($motorisation): array   
 

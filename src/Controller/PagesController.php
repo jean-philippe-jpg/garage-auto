@@ -14,6 +14,7 @@ use App\Repository\VoituresRepository;
 use App\Repository\MotorisationRepository;
 use App\Repository\DetailsServicesRepository;
 use App\Repository\VMarquesRepository;
+use App\Repository\VModelesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -49,7 +50,7 @@ class PagesController extends AbstractController
             'services' => $services,
             'marques' => $marques,
             'modeles' => $modeles,
-            'marque' => $marques,
+            //'marque' => $marques,
             
         ]);
     }
@@ -59,17 +60,23 @@ class PagesController extends AbstractController
 
 
     #[Route('/annonces', name: 'app_annonces', methods: ['GET'])]
-    public function index(VMarquesRepository $Vmarques, VoituresRepository $voiture, ServicesRepository $services, Request $request ): Response
+    public function index(VModelesRepository $Vmodeles, VMarquesRepository $Vmarques, VoituresRepository $voiture, ServicesRepository $services, Request $request ): Response
     {
         $vmarque = $request->get('marque');
+        $vmodele = $request->get('modele');
+        $marques = $Vmarques->findAll();
 
-           // $voitures = $voiture->findAll();
-            $Vmarques = $Vmarques->findAll();
-         $voiture = $voiture->findByMarque($vmarque);
+
+        // $annonce = $voiture->findByMarque($vmarque);
+         $annonces = $voiture->findByModele($vmodele);
+         $marque = $Vmodeles->findVmodeleByVmarque($vmarque);
             
         return $this->render('pages/index.html.twig', [
-            'voitures' => $voiture,
-            'filtreMarques' => $Vmarques,
+            'voitures' => $annonces,
+            'Vmarques' => $marques,
+            'Vmodeles' => $marque,
+           //'annonce' => $annonce,
+            //'filtreModeles' => $modeles,
             //'annonces' => $voiture,
         ]);
     }

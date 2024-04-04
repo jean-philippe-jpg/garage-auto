@@ -45,4 +45,17 @@ class VModelesRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+
+public function findVmodeleByVmarque($marque = null)
+{
+    $queryBuilder = $this->createQueryBuilder('v')
+              ->leftJoin('v.marque', 'm');
+
+              if($marque !== null) {
+                  $queryBuilder->Where('m.id = :marque')
+                  ->setParameter('marque', $marque);
+              }
+                  return $queryBuilder->getQuery()->getResult();
+   
+                }
+    }

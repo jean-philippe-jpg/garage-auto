@@ -25,12 +25,18 @@
 
   <div >
 
-    {% for  filtres in filtreMarques %}
+    {% for  filtresM in Vmarques %}
 
-    <a href="{{path('app_annonces', {'marque': filtres.id})}}">{{filtres}}</a> 
+    <a href="{{path('app_annonces', {'marque': filtresM.id})}}">{{filtresM}}</a> 
     
       {% endfor %}
 
+</div>
 
+<div class="card">
+
+  {% for modele in Vmodeles %}
+    <a href="{{path('app_annonces',{'modele': modele.id})}}">{{modele}}</a>
+  {% endfor %}
 </div>
 

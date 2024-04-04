@@ -1,4 +1,20 @@
-{{ form_start(form) }}
+
+
+
+<style>
+
+    .card{
+        width: 250px;
+        margin-left: 40vw;
+        padding: 12px;
+    }
+</style>
+
+<article class="card">
+
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    
 {{ form_end(form) }}
+</article>
+

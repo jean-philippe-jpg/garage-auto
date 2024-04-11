@@ -75,7 +75,7 @@ class PagesController extends AbstractController
     $servicesid = $request->get('service');
     $details = $detail->findDetailsServicesByServices($servicesid);
 
-    return $this->render('pages/detail.html.twig',[
+    return $this->render('pages/prestation.html.twig',[
         'details' => $details,
                
 

@@ -22,7 +22,7 @@ class VMarquesCrudController extends AbstractCrudController
       
 
         yield TextField::new('marques');
-        yield AssociationField::new('modele');
+        //yield AssociationField::new('modele');
     }
     
 }

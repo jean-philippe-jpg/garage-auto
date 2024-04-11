@@ -90,6 +90,8 @@ class DetailsServices
         return $this;
     }
 
+
+
    
 
     

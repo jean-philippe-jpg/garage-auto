@@ -1,42 +1,44 @@
 
+<style>
+
+  .titre{
+     color: rgb(254, 149, 2);
+    text-decoration: none;
+  }
+  .card-annonce{
+    color: rgb(236, 229, 229);
+    background: black;
+  }
+  .card-img-annonce{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .card-annonce{
+      margin-top: 40px;
+    }
+  }
+</style>
+
 
 
 {% for vehicules in voitures %}
 <div class="card card-annonce" style="width: 18rem;">
-  <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-recettes " alt="recettes">
+  <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-annonce " alt="annonce">
     <div class="card-body">
-      <h5 class="card-title"><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5>
-            {{vehicules.marque}}
-           <br>
-           {{vehicules.modele}}
-           <br>
-          {{vehicules.annee}}
-          <br>
-          {{vehicules.kilometrage}}
-            <br>
-            {{vehicules.prix}}
-            <br>
-           <p id="description" style="display: none;">{{vehicules.description}}</p>
-      <a id="btn-description" href="#" class="btn btn-primary" >description</a>
+      <a class="titre" href="#"><h5 class="card-title "><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5></a>
+           <p>{{vehicules.marque}}</p> 
+          <p>{{vehicules.modele}}</p> 
+          <p><strong>Année</strong> {{vehicules.annee}}</p>
+          <p><strong>Kilometrage</strong> {{vehicules.kilometrage}}</p>
+            <p><strong>Prix</strong> {{vehicules.prix}}</p>
+           <p id="description"  style="display: none;">{{vehicules.description}}</p>
+      
     </div>
   </div>
   {% endfor %}
  
 
-  <div >
-
-    {% for  filtresM in Vmarques %}
-
-    <a href="{{path('app_annonces', {'marque': filtresM.id})}}">{{filtresM}}</a> 
-    
-      {% endfor %}
-
-</div>
-
-<div class="card">
-
-  {% for modele in Vmodeles %}
-    <a href="{{path('app_annonces',{'modele': modele.id})}}">{{modele}}</a>
-  {% endfor %}
-</div>
-
+ 

@@ -34,8 +34,8 @@ class VoituresCrudController extends AbstractCrudController
             yield TextField::new('description', 'description');
             yield NumberField::new('prix', 'prix');
             yield TextareaField::new('imageFile')->setFormType(VichImageType::class)->hideOnIndex();
-          yield AssociationField::new('id_marque');
-           yield AssociationField::new('id_modele');
+            yield AssociationField::new('id_marque');
+             yield AssociationField::new('id_modele');
     }
     
 }

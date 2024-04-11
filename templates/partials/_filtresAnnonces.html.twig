@@ -1,0 +1,49 @@
+
+
+<style>
+
+    .filtres-presta{
+        margin-left: 40vw;
+        margin-top: 10px;
+        color: black;
+        
+    }
+    .btn-group{
+        
+        margin-top: 10px;
+        color: black;
+        
+    }
+</style>
+
+
+
+
+<div class="btn-group">
+    <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      marque
+    </button>
+    <ul class="dropdown-menu">
+      {% for  filtresM in Vmarques %}
+
+      <li><a class="lien-filtre" href="{{path('app_accueil', {'marque': filtresM.id})}}">{{filtresM}}</a></li>
+      
+        {% endfor %}
+    </ul>
+  </div>
+  
+
+  <div class="btn-group">
+    <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Small but
+    </button>
+    <ul class="dropdown-menu">
+      {% for modele in Vmodeles %}
+    <li><a class="lien-filtre" href="{{path('app_accueil',{'modele': modele.id})}}">{{modele}}</a></li>
+  {% endfor %}
+    </ul>
+  </div>
+  
+
+  
+

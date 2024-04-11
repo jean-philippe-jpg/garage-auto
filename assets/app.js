@@ -8,3 +8,20 @@ import './bootstrap.js';
 import './styles/app.css';
 
 
+
+$(document).ready(function(){
+
+    $('.filtre-marque, .filtre-modele, .filtre-motorisation, .filtre-service').hide();
+    $('#atelier').click(function(){
+       
+      $('.filtre-modele, .filtre-motorisation, .filtre-service').hide();
+    });
+   $('.marque').click(function(){
+
+      $('.filtre-modele').show();
+      $('.filtre-motorisation').hide();
+      $('.filtre-service').hide();
+    })
+})
+
+

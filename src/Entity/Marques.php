@@ -48,6 +48,7 @@ class Marques
     {
          return $this->marque;
          return $this->id_modele;
+         
     }
 
     /**

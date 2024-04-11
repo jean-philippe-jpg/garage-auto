@@ -17,11 +17,11 @@ class VModelesCrudController extends AbstractCrudController
     }
 
     
-    //public function configureFields(string $pageName): iterable
-    //{
-       
+    public function configureFields(string $pageName): iterable
+    {
 
-        //yield AssociationField::new('id_modele');
-    //}
+        yield TextField::new('modeles');
+        yield AssociationField::new('marque');
+    }
 
 }

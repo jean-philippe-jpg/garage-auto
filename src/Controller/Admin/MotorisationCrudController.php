@@ -22,9 +22,9 @@ class MotorisationCrudController extends AbstractCrudController
     {
        // yield from parent::configureFields($pageName);
         yield TextField::new('motorisation');
-        yield IntegerField::new('id_modele');
+        yield TextField::new('id_modele');
 
-       yield AssociationField::new('id_service');
+       //yield AssociationField::new('id_service');
         yield AssociationField::new('id_modele');
      }
     }

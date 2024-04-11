@@ -25,9 +25,9 @@ class MarquesCrudController extends AbstractCrudController
     {
         //yield from parent::configureFields($pageName);
         yield TextField::new( 'marque');
-       // yield IntegerField::new( 'id_modele');
+       //yield IntegerField::new( 'id_modele');
 
-        yield AssociationField::new('id_modele');
+        //yield AssociationField::new('id_modele');
         
     }
     

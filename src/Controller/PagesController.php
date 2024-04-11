@@ -26,23 +26,32 @@ class PagesController extends AbstractController
 
 
     #[Route('/', name: 'app_accueil', methods: ['GET'])]
-    public function accueil(ModelesRepository $modeles, MarquesRepository $marques, ServicesRepository $service, MotorisationRepository $motorisation, Request $request): Response
+    public function accueil(VMarquesRepository $Vmarques, VModelesRepository $Vmodeles, ModelesRepository $modeles,VoituresRepository $voiture, MarquesRepository $marques, ServicesRepository $service, DetailsServicesRepository $detailsService, MotorisationRepository $motorisation, Request $request): Response
 
     {  
+        
+
         
          $marquesid = $request->get('marqueid');
          $modelesid = $request->get('modeleid');
          $motorisationid = $request->get('motorisationid');
+         
          $marques = $marques->findAll();
 
         $modeles = $modeles->findModelesByMarque($marquesid);
         $motorisation = $motorisation->findMotorisationByModele($modelesid);
         $services = $service->findServicesByMotorisation($motorisationid);
+        
+        
+        $vmarque = $request->get('marque');
+        $vmodele = $request->get('modele');
+        $marques = $Vmarques->findAll();
 
-       //$services = $service->findAll();
-        //$marques = $marques->findAll();
-       // $modeles = $modeles->findAll();
-       // $motorisation = $motorisation->findAll();
+        $annonces = $voiture->findByModele($vmodele);
+        $marque = $Vmodeles->findVmodeleByVmarque($vmarque);
+        
+        //$details = $detailsService->findAll();
+      
 
     
         return $this->render('pages/accueil.html.twig', [
@@ -50,49 +59,47 @@ class PagesController extends AbstractController
             'services' => $services,
             'marques' => $marques,
             'modeles' => $modeles,
-            //'marque' => $marques,
-            
-        ]);
-    }
 
-   
-   
-
-
-    #[Route('/annonces', name: 'app_annonces', methods: ['GET'])]
-    public function index(VModelesRepository $Vmodeles, VMarquesRepository $Vmarques, VoituresRepository $voiture, ServicesRepository $services, Request $request ): Response
-    {
-        $vmarque = $request->get('marque');
-        $vmodele = $request->get('modele');
-        $marques = $Vmarques->findAll();
-
-
-        // $annonce = $voiture->findByMarque($vmarque);
-         $annonces = $voiture->findByModele($vmodele);
-         $marque = $Vmodeles->findVmodeleByVmarque($vmarque);
-            
-        return $this->render('pages/index.html.twig', [
             'voitures' => $annonces,
             'Vmarques' => $marques,
             'Vmodeles' => $marque,
-           //'annonce' => $annonce,
-            //'filtreModeles' => $modeles,
-            //'annonces' => $voiture,
+            
+            
         ]);
     }
 
 
-    #[Route('/prestation/{id}', name: 'app_prestation', methods: ['GET'])]
-    public function prestation(DetailsServices $detail, ServicesRepository $services ): Response
-    {
+      #[route('/prestation',name: 'app_detail', methods:['GET'])]
+     public function details(DetailsServicesRepository $detail, Request $request)
+   {
+    $servicesid = $request->get('service');
+    $details = $detail->findDetailsServicesByServices($servicesid);
+
+    return $this->render('pages/detail.html.twig',[
+        'details' => $details,
+               
+
+
+    ]);
+
+
+   }
+
+
+    
+
+
+    //#[Route('/prestation/{id}', name: 'app_prestation', methods: ['GET'])]
+    //public function prestation(DetailsServices $detail, ServicesRepository $services ): Response
+    //{
            
             //$prestation = $detail->findAll();
             //$services = $services->findAll();
-        return $this->render('pages/prestation.html.twig', [
-            'details' => $detail,
+        //return $this->render('pages/prestation.html.twig', [
+           // 'details' => $detail,
             //'service' => $services,
-        ]);
-    }
+        //]);
+    //}
 
    
 

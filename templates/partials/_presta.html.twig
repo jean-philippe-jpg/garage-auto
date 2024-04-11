@@ -1,17 +1,54 @@
+<style>
+
+  .card{
+    color: rgb(236, 229, 229);
+    background: black;
+    margin-left: 40vw;
+    margin-top: 10px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .description{
+    color: rgb(236, 229, 229);
+    text-decoration: none;
+  }
+  .card-annonce{
+    color: rgb(236, 229, 229);
+    background: black;
+  }
+  .card-filtre{
+
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 200px;
+    text-align: center;
+    text-decoration-line: none;
+  }
+
+  
+ 
+</style>
 
 
 
 
+<div class="prestations">
 
+    {% for detail in details %}
 
-<div class="card" style="text-align: center; margin-top:20px;">
+      <div class="card" style="width: 300px; margin-top: 10px;">
+        {{detail.titre}}
+          <br>
+          {{detail.description}}
+           <br>
+          {{detail.tarifs}}
+      </div>
 
-    {{details.titre}}
-    <br>
-    {{details.description}}
-    <br>
-    {{details.tarifs}}
-   
+  {% endfor %}
+ 
 
 </div>
-
+<script>
+ 
+</script>

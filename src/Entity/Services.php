@@ -61,7 +61,7 @@ class Services
     public function __toString()
     {
          return $this->getName();
-         return $this->getIdDetail();
+         return $this->id_detail;
     }
 
     public function getIdMotorisation(): ?Motorisation

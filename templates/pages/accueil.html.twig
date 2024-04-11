@@ -1,24 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello PagesController!{% endblock %}
+     
+
+
 
 {% block body %}
 
 
- <div  class="filtre">
+ <div  class="filtres-presta">
 
     {% include "partials/_filtre.html.twig" %}
  </div>
 
+ <div class="filtres-annonces">
+  {% include "partials/_filtresAnnonces.html.twig" %}
 
+</div>
 
+ <div class="annonces">
+
+   {% include "partials/_annonces.html.twig" %}
    
+</div>
 
 
 
+
+
+</div>
 <h1 style="margin-top: 35vh; margin-left: 40vw;">GARAGE PERROT</h1>
 
 
     
 
 {% endblock %}
+
+

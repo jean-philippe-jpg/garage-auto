@@ -35,14 +35,22 @@ class DetailsServicesRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
+       public function findDetailsServicesByServices($service = null)
+    {
+       
+           $queryBuilder = $this->createQueryBuilder('d')
+             ->leftJoin('d.id_service', 's');
 
-//    public function findOneBySomeField($value): ?DetailsServices
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+            if($service !== null) {
+             $queryBuilder->Where('s.id = :service')
+            ->setParameter('service', $service);
+            }
+            return $queryBuilder->getQuery()->getResult();
+
+
+    }
 }
+
+
+
+  

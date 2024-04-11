@@ -33,6 +33,7 @@ class VMarques
     public function __toString()
     {
         return $this->marques;
+        return $this->modele;
     }
 
     public function getId(): ?int

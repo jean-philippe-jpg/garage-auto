@@ -4,8 +4,8 @@
    
 </style>
 
-<div class="btn-group filtre-marque">
-    <button class="btn btn-info btn-sm dropdown-toggle   " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+<div class="btn-group ">
+    <button class="btn btn-info btn-sm dropdown-toggle   filtre-marque" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       marque
     </button>
     <ul class="dropdown-menu">
@@ -21,28 +21,28 @@
 
    
 
-  <div class="btn-group   filtre-modele">
-    <button class="btn btn-info btn-sm dropdown-toggle  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <div class="btn-group   ">
+    <button class="btn btn-info btn-sm dropdown-toggle  filtre-modele" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       modele
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu modele">
         {% for modele in modeles %}
 
-        <li><a class="lien-filtre" href="{{path('app_accueil', {'modeleid': modele.id})}}">{{modele}}</a></li>
+        <li><a class="lien-filtre  " href="{{path('app_accueil', {'modeleid': modele.id})}}">{{modele}}</a></li>
         
         {% endfor %}
     </ul>
   </div>
   
 
-  <div class="btn-group  filtre-motorisation">
-    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <div class="btn-group  ">
+    <button class="btn btn-info btn-sm dropdown-toggle  filtre-motorisation" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       motorisation
     </button>
     <ul class="dropdown-menu">
         {% for motorisations in motorisation %}
 
-        <li><a class="lien-filtre" href="{{path('app_accueil', {'motorisationid': motorisations.id})}}">{{motorisations.motorisation}}</a></li>
+        <li><a class="lien-filtre  motorisation" href="{{path('app_accueil', {'motorisationid': motorisations.id})}}">{{motorisations.motorisation}}</a></li>
             
         {% endfor %}
     </ul>
@@ -51,15 +51,15 @@
 
     
 
-  <div class="btn-group  filtre-service">
-    <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <div class="btn-group  ">
+    <button class="btn btn-info btn-sm dropdown-toggle filtre-service" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       services
     </button>
 
     <ul class="dropdown-menu">
         {% for service in services %}
 
-        <li><a class="lien-filtre" href="{{ path('app_detail', {'service' : service.id})}}">{{service}}</a></li>
+        <li><a class="lien-filtre   service" href="{{ path('app_detail', {'service' : service.id})}}">{{service}}</a></li>
         
         {% endfor %}
     </ul>

@@ -2,7 +2,8 @@
      
     body{
 
-        background: rgb(241, 161, 12);
+        background-image: url("/assets/imagesStyle/dark-style-sky-nighttime.jpg");
+        
     }
     .annonces{
         display: flex;

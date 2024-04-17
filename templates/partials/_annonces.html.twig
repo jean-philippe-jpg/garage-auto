@@ -8,6 +8,7 @@
   .card-annonce{
     color: rgb(236, 229, 229);
     background: black;
+    
   }
   .card-img-annonce{
     width: 100%;
@@ -28,7 +29,7 @@
 <div class="card card-annonce" style="width: 18rem;">
   <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-annonce " alt="annonce">
     <div class="card-body">
-      <a class="titre" href="#"><h5 class="card-title "><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5></a>
+      <a class="titre" href="{{path('app_description', {'description': vehicules.id})}}"><h5 class="card-title "><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5></a>
            <p>{{vehicules.marque}}</p> 
           <p>{{vehicules.modele}}</p> 
           <p><strong>Année</strong> {{vehicules.annee}}</p>

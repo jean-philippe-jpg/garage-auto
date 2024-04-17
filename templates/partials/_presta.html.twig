@@ -1,13 +1,6 @@
 <style>
 
-  .card{
-    color: rgb(236, 229, 229);
-    background: black;
-    margin-left: 40vw;
-    margin-top: 10px;
-    width: 300px;
-    text-align: center;
-  }
+  
 
   .description{
     color: rgb(236, 229, 229);
@@ -36,8 +29,8 @@
 <div class="prestations">
 
     {% for detail in details %}
-
-      <div class="card" style="width: 300px; margin-top: 10px;">
+      
+      <div class="card  description-service" >
         {{detail.titre}}
           <br>
           {{detail.description}}

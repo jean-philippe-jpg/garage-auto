@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Voitures;
 use App\Form\VoituresType;
+use App\Repository\UserRepository;
 use App\Repository\VoituresRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +20,7 @@ class VoituresController extends AbstractController
     {
         return $this->render('voitures/index.html.twig', [
             'voitures' => $voituresRepository->findAll(),
+            
         ]);
     }
 

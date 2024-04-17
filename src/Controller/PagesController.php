@@ -4,21 +4,22 @@ namespace App\Controller;
 
 use App\Entity\Marques;
 use App\Entity\Modeles;
+use App\Entity\Services;
+use App\Entity\Voitures;
 use App\Entity\Motorisation;
 use App\Entity\DetailsServices;
-use App\Entity\Services;
 use App\Repository\MarquesRepository;
 use App\Repository\ModelesRepository;
 use App\Repository\ServicesRepository;
+use App\Repository\VMarquesRepository;
+use App\Repository\VModelesRepository;
 use App\Repository\VoituresRepository;
 use App\Repository\MotorisationRepository;
 use App\Repository\DetailsServicesRepository;
-use App\Repository\VMarquesRepository;
-use App\Repository\VModelesRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class PagesController extends AbstractController
 {
@@ -78,28 +79,20 @@ class PagesController extends AbstractController
     return $this->render('pages/prestation.html.twig',[
         'details' => $details,
                
-
-
-    ]);
-
-
-   }
-
-
     
 
+    ]);
+   }
 
-    //#[Route('/prestation/{id}', name: 'app_prestation', methods: ['GET'])]
-    //public function prestation(DetailsServices $detail, ServicesRepository $services ): Response
-    //{
+    #[Route('/description/{description}', name: 'app_description', methods: ['GET'])]
+    public function description(Voitures  $voiture): Response
+    {
            
-            //$prestation = $detail->findAll();
-            //$services = $services->findAll();
-        //return $this->render('pages/prestation.html.twig', [
-           // 'details' => $detail,
-            //'service' => $services,
-        //]);
-    //}
+            
+        return $this->render('pages/description.html.twig', [
+          'description' => $voiture,
+        ]);
+    }
 
    
 

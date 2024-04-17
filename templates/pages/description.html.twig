@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% for descriptions in description %}
+
+<img style="width: 30vw; height: 30vh; margin-left: 10vw; border-radius: 15px;" src="{{ vich_uploader_asset(descriptions, 'imageFile')}}" class="img-detail" alt="{{ description.modele }}">
+
+<p>{{descriptions.description}}</p>
+    
+{% endfor %}

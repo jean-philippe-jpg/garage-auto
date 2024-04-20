@@ -46,17 +46,13 @@ class ContactController extends AbstractController
             $email = (new Email())
             ->from($email)
             ->to('you@example.com')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('demande de contact')
+            //->subject('demande de contact')
             ->text($message, $prenom, $nom , $telephone);
            
 
                $mailer->send($email);
 
-
+              $this->addFlash('success', 'Votre message a bien été envoyé');
             return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
         }
 

@@ -32,11 +32,10 @@
       <a class="titre" href="{{path('app_description', {'description': vehicules.id})}}"><h5 class="card-title "><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5></a>
            <p>{{vehicules.marque}}</p> 
           <p>{{vehicules.modele}}</p> 
-          <p><strong>Année</strong> {{vehicules.annee}}</p>
-          <p><strong>Kilometrage</strong> {{vehicules.kilometrage}}</p>
-            <p><strong>Prix</strong> {{vehicules.prix}}</p>
+          <p><strong>{%  trans %}Year{%  endtrans %}</strong> {{vehicules.annee}}</p>
+          <p><strong>{%  trans %}mails{%  endtrans %}</strong> {{vehicules.kilometrage}}</p>
+            <p><strong>{%  trans %}Price{%  endtrans %}</strong> {{vehicules.prix}}</p>
            <p id="description"  style="display: none;">{{vehicules.description}}</p>
-      
     </div>
   </div>
   {% endfor %}

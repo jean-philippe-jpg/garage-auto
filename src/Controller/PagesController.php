@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PagesController extends AbstractController
 {
@@ -27,7 +28,7 @@ class PagesController extends AbstractController
 
 
     #[Route('/', name: 'app_accueil', methods: ['GET'])]
-    public function accueil(VMarquesRepository $Vmarques, VModelesRepository $Vmodeles, ModelesRepository $modeles,VoituresRepository $voiture, MarquesRepository $marques, ServicesRepository $service, DetailsServicesRepository $detailsService, MotorisationRepository $motorisation, Request $request): Response
+    public function accueil( TranslatorInterface $translator, VMarquesRepository $Vmarques, VModelesRepository $Vmodeles, ModelesRepository $modeles,VoituresRepository $voiture, MarquesRepository $marques, ServicesRepository $service, DetailsServicesRepository $detailsService, MotorisationRepository $motorisation, Request $request): Response
 
     {  
         

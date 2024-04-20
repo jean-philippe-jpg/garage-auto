@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Orbitron:wght@400..900&display=swap');
      
     body{
        position: relative;
@@ -6,7 +6,7 @@
         background-image: url("/assets/imagesStyle/dark-style-sky-nighttime.jpg");
          background-size: cover;
         background-position: center;
-
+        
         
     }
     .annonces{
@@ -30,6 +30,7 @@
         .navbar{
             background:rgba(193,9,9);
             width: 100%;
+            font-family: 'Orbitron', sans-serif;
            
           
           }
@@ -135,5 +136,6 @@
             width: 300px;
             text-align: center;
           }
+          
         
         

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="ifaDJWD" resname="Year">
+        <source>Year</source>
+        <target>annee</target>
+      </trans-unit>
+      <trans-unit id="8.r.6Wk" resname="mails">
+        <source>mails</source>
+        <target>kilometrage</target>
+      </trans-unit>
+      <trans-unit id="k8kchR5" resname="Price">
+        <source>Price</source>
+        <target>prix</target>
+      </trans-unit>
+      <trans-unit id="OIwQWL2" resname="brands">
+        <source>brands</source>
+        <target>marque</target>
+      </trans-unit>
+      <trans-unit id="k3LEcO6" resname="model">
+        <source>model</source>
+        <target>modele</target>
+      </trans-unit>
+      <trans-unit id="tGz.j4m" resname="motors">
+        <source>motors</source>
+        <target>motorisation</target>
+      </trans-unit>
+      <trans-unit id="7xxLRfL" resname="services">
+        <source>services</source>
+        <target>services</target>
+      </trans-unit>
+      <trans-unit id="jZAB0yx" resname="shop">
+        <source>shop</source>
+        <target>annonces</target>
+      </trans-unit>
+      <trans-unit id="7lENGge" resname="workshop">
+        <source>workshop</source>
+        <target>atelier</target>
+      </trans-unit>
+      <trans-unit id="ANjT8Rc" resname="mail">
+        <source>mail</source>
+        <target>contact</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

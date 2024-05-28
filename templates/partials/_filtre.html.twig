@@ -1,17 +1,14 @@
 
-<style>
-   
-   
-</style>
 
-<div class="btn-group ">
+
+<div id="marque" class="btn-group ">
     <button class="btn btn-info btn-sm dropdown-toggle   filtre-marque" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       {% trans %}brands{% endtrans %}
     </button>
-    <ul class="dropdown-menu">
+    <ul  class="dropdown-menu">
         {% for marque in marques %}
 
-        <li><a class="lien-filtre  marque" href="{{path('app_accueil', {'marqueid': marque.id})}}">{{marque}}</a></li>
+        <li ><a id="filter-marque"  class="lien-filtre  marque" href="{{path('app_accueil', {'marqueid': marque.id})}}">{{marque}}</a></li>
         
         {% endfor %} 
     
@@ -21,28 +18,28 @@
 
    
 
-  <div class="btn-group   ">
+  <div id="modele" class="btn-group   ">
     <button class="btn btn-info btn-sm dropdown-toggle  filtre-modele" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       {% trans %}model{% endtrans %}
     </button>
     <ul class="dropdown-menu modele">
         {% for modele in modeles %}
 
-        <li><a class="lien-filtre  " href="{{path('app_accueil', {'modeleid': modele.id})}}">{{modele}}</a></li>
+        <li><a id="filter-model" class="lien-filtre  " href="{{path('app_accueil', {'modeleid': modele.id})}}">{{modele}}</a></li>
         
         {% endfor %}
     </ul>
   </div>
   
 
-  <div class="btn-group  ">
+  <div id="motorisation" class="btn-group  ">
     <button class="btn btn-info btn-sm dropdown-toggle  filtre-motorisation" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       {% trans %}motors{% endtrans %}
     </button>
     <ul class="dropdown-menu">
         {% for motorisations in motorisation %}
 
-        <li><a class="lien-filtre  motorisation" href="{{path('app_accueil', {'motorisationid': motorisations.id})}}">{{motorisations.motorisation}}</a></li>
+        <li><a id="filter-motor" class="lien-filtre  motorisation" href="{{path('app_accueil', {'motorisationid': motorisations.id})}}">{{motorisations.motorisation}}</a></li>
             
         {% endfor %}
     </ul>
@@ -51,7 +48,7 @@
 
     
 
-  <div class="btn-group  ">
+  <div id="service" class="btn-group  ">
     <button class="btn btn-info btn-sm dropdown-toggle filtre-service" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       {% trans %}services{% endtrans %}
     </button>
@@ -59,7 +56,7 @@
     <ul class="dropdown-menu">
         {% for service in services %}
 
-        <li><a class="lien-filtre   service" href="{{ path('app_detail', {'service' : service.id})}}">{{service}}</a></li>
+        <li><a id="filter-service" class="lien-filtre   service" href="{{ path('app_detail', {'service' : service.id})}}">{{service}}</a></li>
         
         {% endfor %}
     </ul>

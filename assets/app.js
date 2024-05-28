@@ -1,4 +1,6 @@
+//import { filter } from 'core-js/core/array';
 import './bootstrap.js';
+import Filtres from './filtres.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -9,47 +11,82 @@ import './styles/app.css';
 
 
 
+export const filtre = new Filtres('filtre');
+filtre.filterHide('marque');
+filtre.filterHide('modele');
+filtre.filterHide('motorisation');
+filtre.filterHide('service');
+filtre.filterHide('vmarque');
+filtre.filterHide('vmodele');
+//filtre.filterHide('card-annonces');
+ 
 
-$(document).ready(function(){
+  filtre.getElement('atelier').addEventListener('click', () => {
+  filtre.filterShow('marque');
+  filtre.filterHide('card-annonces');
+});
 
-  $('.filtre-marque, .filtre-modele, .filtre-motorisation, .filtre-service').hide();
+filtre.getElement('filter-marque').addEventListener('click', (event) => {
 
-    $('#atelier').click(function(event){
-       event.preventDefault();
-      //$('.filtre-marque').hide();
-     $('.filtre-marque').show();
-    });
-   $('.marque').click(function(event){
-       event.preventDefault();
-      $('.filtre-modele').show();
-    })
-    $('.modele').click(function(event){
-      event.preventDefault();
-      $('.filtre-motorisation').show();
-    })
-    $('.motorisation').click(function(event){
-      event.preventDefault();
-      $('.filtre-service').show();
-    })
-})
-
-$(document).ready(function(){
-
-  $('.Vmarque, .Vmodele').hide();
-
-  $('#annonces').click(function(event){
-    event.preventDefault();
-    $('.msg-bienvenue').hide();
-    $('.Vmarque').show();
-    
-  })
-
-  $('.vmarque').click(function(event){
-    event.preventDefault();
-    $('.Vmodele').show();
-  })
+  event.preventDefault();
+  filtre.filterHide('marque');
+  filtre.filterShow('motorisation');
   
-})
+  
+});
+
+filtre.getElement('filter-motor').addEventListener('click', (event) => {
+  event.preventDefault();
+  filtre.filterHide('motorisation');
+  filtre.filterShow('service');
+  
+});
+
+//filtre.getElement('filter-motorisation').addEventListener('click', () => {
+  //filtre.filterHide('motorisation');
+  //filtre.filterShow('filter-service');
+//});
+ 
+filtre.getElement('annonces').addEventListener('click', (event) => {
+ event.preventDefault();
+  filtre.filterShow('vmarque');
+  filtre.filterShow('card-annonces');
+});
+
+
+filtre.getElement('filter-vmarque').addEventListener('click', (event) => { 
+  event.preventDefault();
+  filtre.filterHide('vmarque');
+  filtre.filterShow('vmodele'); 
+
+});
+
+//filtre.getElement('filter-vmodel').addEventListener('click', (event) => {
+  //event.preventDefault();
+  //filtre.filterHide('vmodele');
+  //filtre.filterShow('voitures-cible');
+//});
+
+
+
+
+//$(document).ready(function(){
+
+  //$('.Vmarque, .Vmodele').hide();
+
+ // $('#annonces').click(function(event){
+    //event.preventDefault();
+    //$('.msg-bienvenue').hide();
+    //$('.Vmarque').show();
+    
+  //})
+
+  //$('.vmarque').click(function(event){
+    //event.preventDefault();
+    //$('.Vmodele').show();
+  //})
+  
+//})
 
 clock();
 

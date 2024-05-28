@@ -8,8 +8,8 @@
   .card-annonce{
     color: rgb(236, 229, 229);
     background: black;
-    
   }
+
   .card-img-annonce{
     width: 100%;
     height: 200px;
@@ -24,21 +24,23 @@
 </style>
 
 
-
-{% for vehicules in voitures %}
-<div class="card card-annonce" style="width: 18rem;">
+<div id="card-annonces" >
+  {% for vehicules in voitures %}
+<div id="voitures-cible"  class="card card-annonce" style="width: 18rem;">
   <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-annonce " alt="annonce">
     <div class="card-body">
       <a class="titre" href="{{path('app_description', {'description': vehicules.id})}}"><h5 class="card-title "><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5></a>
            <p>{{vehicules.marque}}</p> 
           <p>{{vehicules.modele}}</p> 
-          <p><strong>{%  trans %}Year{%  endtrans %}</strong> {{vehicules.annee}}</p>
-          <p><strong>{%  trans %}mails{%  endtrans %}</strong> {{vehicules.kilometrage}}</p>
-            <p><strong>{%  trans %}Price{%  endtrans %}</strong> {{vehicules.prix}}</p>
+          <p><strong>{% trans %}Year{%  endtrans %}</strong> {{vehicules.annee}}</p>
+          <p><strong>{% trans %}mails{%  endtrans %}</strong> {{vehicules.kilometrage}}</p>
+            <p><strong>{% trans %}Price{%  endtrans %}</strong> {{vehicules.prix}}</p>
            <p id="description"  style="display: none;">{{vehicules.description}}</p>
     </div>
   </div>
   {% endfor %}
  
+</div>
+
 
  

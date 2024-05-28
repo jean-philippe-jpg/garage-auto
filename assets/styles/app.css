@@ -9,6 +9,8 @@
         
         
     }
+
+    
     .annonces{
         display: flex;
         justify-content: space-evenly;
@@ -129,6 +131,7 @@
         }
 
         .card-annonce{
+            
             color: rgb(236, 229, 229);
             background: black;
             margin-left: 40vw;
@@ -137,5 +140,12 @@
             text-align: center;
           }
           
-        
-        
+        .hide{
+            display: none;
+           
+        }
+         
+        .show{
+            display: block;
+            
+        }

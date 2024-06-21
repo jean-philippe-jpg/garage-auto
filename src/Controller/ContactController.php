@@ -43,7 +43,7 @@ class ContactController extends AbstractController
                 $telephone = $contact->getTelephone();
                 $message = $contact->getMessage();
 
-            $email = (new Email())
+            $email =( new Email())
             ->from($email)
             ->to('you@example.com')
             //->subject('demande de contact')

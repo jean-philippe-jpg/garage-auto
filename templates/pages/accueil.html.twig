@@ -6,21 +6,24 @@
 
 
 {% block body %}
+<div   id="bienvenue">
 
-<p class="msg-bienvenue"   style=" display:flex; color: #F89521; font-size:1.8em; justify-content:center; margin-top:20px;">nous vous conseillon dans le choix de votre nouvelle voiture, selon vos besoin</p>
+   <p id="msg-bienvenue"   style=" display:flex; color: #F89521; font-size:1.8em; justify-content:center; margin-top:20px;">nous vous conseillon dans le choix de votre nouvelle voiture, selon vos besoin</p>
+</div>
 
 
- <div  class="filtres-presta">
+
+ <div id="f-presta"  >
 
     {% include "partials/_filtre.html.twig" %}
  </div>
 
- <div class="filtres-annonces">
+ <div id="filters-annonces" >
   {% include "partials/_filtresAnnonces.html.twig" %}
 
 </div>
 
- <div class="annonces">
+ <div id="cards-annonces" >
 
    {% include "partials/_annonces.html.twig" %}
    

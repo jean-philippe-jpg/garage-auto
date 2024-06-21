@@ -1,35 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Orbitron:wght@400..900&display=swap');
      
     body{
-       position: relative;
-       
         background-image: url("/assets/imagesStyle/dark-style-sky-nighttime.jpg");
          background-size: cover;
-        background-position: center;
-        
-        
+        background-position: center; 
+        position: relative;
     }
 
-    
-    .annonces{
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 10vh;
-        flex-wrap: wrap;
         
-        }
-        
-        
-        .menu-marques{
-        
-        display: none;
-        }
-        .lien-filtre{
+        .lien-filter{
 
             text-decoration: none;
         }
 
         .navbar{
+            
             background:rgba(193,9,9);
             width: 100%;
             font-family: 'Orbitron', sans-serif;
@@ -44,6 +29,121 @@
             width: 100%;
             color: black;
         }
+       
+             
+        .prestations{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 10vh;
+            flex-wrap: wrap;
+        }
+        .description-service{
+            color:white;
+            padding: 30px;
+            background-image: url('/assets/imagesStyle/gears-1236578_1280.jpg');
+          
+            background-size: cover;
+            width: 500px; margin-top: 10px;
+            height: 300px;
+
+
+
+        }
+
+
+        .titre{
+            color: rgb(254, 149, 2);
+           text-decoration: none;
+         }
+        
+       
+         .card-img-annonce{
+           width: 100%;
+           height: 200px;
+           object-fit: cover;
+         }
+       
+        
+
+        .annonces{
+            
+            
+            color: rgb(236, 229, 229);
+            background: black;
+            margin-top: 10px;
+            width: 300px;
+            text-align: center;
+            margin-left: 15px;
+             
+          }
+
+          #cards-annonces{
+
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: center;
+          }
+
+          #filters-annonces{
+             margin-left: 45vw;
+             margin-top: 10px;
+          }
+
+          #f-presta{
+            margin-left: 45vw;
+            margin-top: 10px;
+          }
+
+          .form-contact{
+            width: 250px;
+            margin-left: 20vw;
+            padding: 12px;
+        }
+        footer{
+
+            background:rgba(193,9,9);
+            height: 300px;
+          }
+        .info-footer{
+            color: white;
+          }
+
+          .admin{
+            color: white;
+            text-decoration: none;
+          }
+
+          @media(max-width: 991px){
+                
+                #cards-annonces{
+                    display: flex;
+                    flex-wrap: wrap;
+                    
+                }
+                    .annonces{
+                        margin-bottom: 20px;
+                        margin-left: 15px;
+                    }
+                    .description-service{
+
+                        margin: 30px;
+                    }
+
+                    
+          }
+          
+
+        .masque{
+            display: none;
+                
+        }
+         
+        .show{
+            
+            display: block;
+            
+        }
+
         @media(max-width: 991px){
 
             .clock{
@@ -110,42 +210,4 @@
             left: -370%;
             bottom: 0px;
             top: 100%;
-        }
-             
-        .prestations{
-            display: flex;
-            justify-content: space-evenly;
-            margin-top: 10vh;
-            flex-wrap: wrap;
-        }
-        .description-service{
-            
-            padding: 30px;
-            background-image: url('/assets/imagesStyle/gears-1236578_1280.jpg');
-            background-size: cover;
-            width: 500px; margin-top: 10px;
-            height: 300px;
-
-
-
-        }
-
-        .card-annonce{
-            
-            color: rgb(236, 229, 229);
-            background: black;
-            margin-left: 40vw;
-            margin-top: 10px;
-            width: 300px;
-            text-align: center;
-          }
-          
-        .hide{
-            display: none;
-           
-        }
-         
-        .show{
-            display: block;
-            
         }

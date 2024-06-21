@@ -1,6 +1,9 @@
-//import { filter } from 'core-js/core/array';
+
 import './bootstrap.js';
 import Filtres from './filtres.js';
+import F_annonces from './annonces.js';
+const display = document.getElementById('atelier');
+
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -11,82 +14,86 @@ import './styles/app.css';
 
 
 
-export const filtre = new Filtres('filtre');
-filtre.filterHide('marque');
-filtre.filterHide('modele');
-filtre.filterHide('motorisation');
-filtre.filterHide('service');
-filtre.filterHide('vmarque');
-filtre.filterHide('vmodele');
-//filtre.filterHide('card-annonces');
+
+
+//annonces.getElement('atelier').addEventListener('click', (event) => {
  
-
-  filtre.getElement('atelier').addEventListener('click', () => {
-  filtre.filterShow('marque');
-  filtre.filterHide('card-annonces');
-});
-
-filtre.getElement('filter-marque').addEventListener('click', (event) => {
-
-  event.preventDefault();
-  filtre.filterHide('marque');
-  filtre.filterShow('motorisation');
   
-  
-});
 
-filtre.getElement('filter-motor').addEventListener('click', (event) => {
-  event.preventDefault();
-  filtre.filterHide('motorisation');
-  filtre.filterShow('service');
-  
-});
-
-//filtre.getElement('filter-motorisation').addEventListener('click', () => {
-  //filtre.filterHide('motorisation');
-  //filtre.filterShow('filter-service');
-//});
- 
-filtre.getElement('annonces').addEventListener('click', (event) => {
- event.preventDefault();
-  filtre.filterShow('vmarque');
-  filtre.filterShow('card-annonces');
-});
-
-
-filtre.getElement('filter-vmarque').addEventListener('click', (event) => { 
-  event.preventDefault();
-  filtre.filterHide('vmarque');
-  filtre.filterShow('vmodele'); 
-
-});
-
-//filtre.getElement('filter-vmodel').addEventListener('click', (event) => {
-  //event.preventDefault();
-  //filtre.filterHide('vmodele');
-  //filtre.filterShow('voitures-cible');
 //});
 
 
 
 
-//$(document).ready(function(){
 
-  //$('.Vmarque, .Vmodele').hide();
 
- // $('#annonces').click(function(event){
-    //event.preventDefault();
-    //$('.msg-bienvenue').hide();
-    //$('.Vmarque').show();
-    
-  //})
+ const filtres = new Filtres();
+ filtres.filterHide('vmarque');
+filtres.filterHide('vmodele');
+filtres.filterHide('marque');
+filtres.filterHide('modele');
+filtres.filterHide('motorisation');
+filtres.filterHide('service');
+//filtre.filterHide('vmarque');
+//filtre.filterHide('vmodele');
+//filtres.filterHide('cards-annonces');
+ 
 
-  //$('.vmarque').click(function(event){
-    //event.preventDefault();
-    //$('.Vmodele').show();
-  //})
+  filtres.getElement('atelier').addEventListener('click', (event) => {
+    event.preventDefault();
+  filtres.filterShow('marque');
+  filtres.filterHide('cards-annonces');
+  filtres.filterHide('filters-annonces');
+  filtres.filterHide('bienvenue');
+});
+
+filtres.getElement('filter-marque').addEventListener('click', (event) => {
+
+  event.preventDefault();
+  filtres.filterShow('modele');
+  filtres.filterHide('marque'); 
   
-//})
+  
+});
+
+filtres.getElement('filter-model').addEventListener('click', (event) => {
+  event.preventDefault();
+  filtres.filterShow('motorisation');
+  filtres.filterHide('modele');
+  
+});
+
+filtres.getElement('filter-motor').addEventListener('click', (event) => {
+  event.preventDefault();
+  filtres.filterHide('motorisation');
+  filtres.filterShow('service');
+});
+
+filtres.getElement('annonces').addEventListener('click', (event) => {
+  
+  event.preventDefault();
+  filtres.filterShow('vmarque');
+  //filtres.filterHide('vmodele');
+  filtres.filterHide('f-presta');
+  filtres.filterShow('cards-annonces');
+  filtres.filterHide('bienvenue');
+});
+
+
+filtres.getElement('filter-vmarque').addEventListener('click', (event) => {
+  
+  event.preventDefault();
+  filtres.filterShow('vmodele');
+  filtres.filterHide('vmarque');
+  });
+  
+  //filtres.getElement('filters-annonces').addEventListener('click', (event) => {
+    //filtres.filterHide('f-presta');
+  
+  //});
+
+
+
 
 clock();
 

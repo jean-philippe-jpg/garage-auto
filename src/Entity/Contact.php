@@ -13,16 +13,16 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 50)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 50)]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 100)]
     private ?string $email = null;
 
-    #[ORM\Column]
+    #[ORM\Column(length: 10)]
     private ?int $telephone = null;
 
     #[ORM\Column(length: 255)]

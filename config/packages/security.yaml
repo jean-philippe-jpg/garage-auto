@@ -39,9 +39,9 @@ security:
     access_control:
          
           #- { path: ^/register, roles: ROLE_ADMIN }
-         #- { path: ^/admin, roles: ROLE_ADMIN }
-         #- { path: ^/voitures, roles: ROLE_USER }
-         # - { path: ^/connexion, roles: ROLE_USER }
+         - { path: ^/admin, roles: ROLE_ADMIN },
+         - { path: ^/voitures, roles: ROLE_USER },
+          #- { path: ^/connexion, roles: ROLE_USER }
 
 when@test:
     security:

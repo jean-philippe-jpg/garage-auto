@@ -1,44 +1,25 @@
 
 
-<style>
 
-    .filtres-presta{
-        margin-left: 40vw;
-        margin-top: 10px;
-        color: black;
-        
-    }
-    .btn-group{
-        
-        margin-top: 10px;
-        color: black;
-        
-    }
-</style>
-
-
-
-
-<div id="vmarque" class="btn-group Vmarque">
-    <button class="btn btn-success btn-sm dropdown-toggle  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button  id="vmarque" class="btn btn-success btn-sm dropdown-toggle  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
       marque
     </button>
-    <ul class="dropdown-menu">
+    <ul id="filter-vmarque"  class="dropdown-menu">
       {% for  filtresM in Vmarques %}
 
-      <li><a id="filter-vmarque" class="lien-filtre  vmarque" href="{{path('app_accueil', {'marque': filtresM.id})}}">{{filtresM}}</a></li>
+      <li ><a   class="lien-filter" href="{{path('app_accueil', {'marque': filtresM.id})}}">{{filtresM}}</a></li>
       
         {% endfor %}
     </ul>
-  </div>
+  
 
-  <div id="vmodele" class="btn-group Vmodele">
-    <button class="btn btn-success btn-sm dropdown-toggle   " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  
+    <button id="vmodele" class="btn btn-success btn-sm dropdown-toggle   " type="button" data-bs-toggle="dropdown" aria-expanded="false">
       modele
     </button>
     <ul class="dropdown-menu">
       {% for modele in Vmodeles %}
-    <li><a id="filter-vmodel" class="lien-filtre" href="{{path('app_accueil',{'modele': modele.id})}}">{{modele}}</a></li>
+    <li><a  id="filter-vmodel" class="lien-filter" href="{{path('app_accueil',{'modele': modele.id})}}">{{modele}}</a></li>
   {% endfor %}
     </ul>
   </div>

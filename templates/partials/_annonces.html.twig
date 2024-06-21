@@ -1,33 +1,10 @@
 
-<style>
-
-  .titre{
-     color: rgb(254, 149, 2);
-    text-decoration: none;
-  }
-  .card-annonce{
-    color: rgb(236, 229, 229);
-    background: black;
-  }
-
-  .card-img-annonce{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-
-  @media (max-width: 768px) {
-    .card-annonce{
-      margin-top: 40px;
-    }
-  }
-</style>
 
 
-<div id="card-annonces" >
+
   {% for vehicules in voitures %}
-<div id="voitures-cible"  class="card card-annonce" style="width: 18rem;">
-  <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-annonce " alt="annonce">
+<div  class="card annonces" style="width: 18rem;">
+  <img   src="{{ vich_uploader_asset(vehicules, 'imageFile')}}" class="card-img-annonce " alt="photo">
     <div class="card-body">
       <a class="titre" href="{{path('app_description', {'description': vehicules.id})}}"><h5 class="card-title "><b>{{vehicules.marque}} {{vehicules.modele}}</b></h5></a>
            <p>{{vehicules.marque}}</p> 
@@ -40,7 +17,7 @@
   </div>
   {% endfor %}
  
-</div>
+
 
 
  

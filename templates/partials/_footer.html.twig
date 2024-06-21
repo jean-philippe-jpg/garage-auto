@@ -1,14 +1,20 @@
-<style>
-
-  .footer{
-
-    background:rgba(193,9,9);
-  }
-</style>
 
 
-<footer class=" text-center  footer">
-    <!-- Grid container -->
+
+<footer class=" text-center">
+
+  <p class="info-footer">nous contacter<br>telephone<br>020410111213
+  <br>email:<br>gaudin@gmail.fr
+  </p>
+  <div class="admin">
+    {% if app.user %}
+    <a   href="/deconnexion">deconnexion</a>
+    <p style="margin-right: 30px;">{{app.user.email}}</p>
+    {% else %}
+    <a  href="/connexion">admin</a>
+   {% endif %}
+  </div>
+ 
     <div class="container p-4 pb-0">
       <!-- Section: Social media -->
       <section class="mb-4">
@@ -75,16 +81,8 @@
     </div>
     
     <div style="justify-content: end;  display: flex; margin-right:30px; text-decoration:none;">
-
-      {% if app.user %}
- 
-      <a   href="/deconnexion">deconnexion</a>
-      <p style="margin-right: 30px;">{{app.user.email}}</p>
-    
-      {% else %}
-    
-      <a  href="/connexion">connexion</a>
-     {% endif %}
+        
+     
     </div>
    
     <!-- Grid container -->

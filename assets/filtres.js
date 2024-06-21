@@ -1,13 +1,5 @@
 export default class Filtres {
     
-
-
-
-   //getDive(id) {
-
-
-   // return document.getElementById(id).parentNode;
-  // }
     
    getElement(id){
 
@@ -15,7 +7,7 @@ export default class Filtres {
    }
 
     filterHide(id) {
-         this.getElement(id).classList.add('hide');
+         this.getElement(id).classList.add('masque');
     }
 
     filterShow(id){
